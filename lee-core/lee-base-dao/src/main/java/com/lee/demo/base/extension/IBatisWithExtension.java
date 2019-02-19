@@ -1,5 +1,6 @@
 package com.lee.demo.base.extension;
 
+import com.github.abel533.mapper.Mapper;
 import com.lee.demo.base.define.IBatisWithBase;
 import org.apache.ibatis.binding.MapperRegistry;
 import org.apache.ibatis.session.Configuration;
@@ -10,9 +11,10 @@ import javax.annotation.Resource;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
+import java.util.Map;
 
 
-public abstract class IBatisWithExtension<T,V> {
+public abstract class IBatisWithExtension<T,V extends Mapper> {
     @Resource
     private SqlSessionFactory sqlSessionFactory;
 
@@ -25,8 +27,6 @@ public abstract class IBatisWithExtension<T,V> {
      * 初始化一些操作
      */
     public IBatisWithExtension(){
-
-
 
     }
 

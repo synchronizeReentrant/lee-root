@@ -5,44 +5,45 @@ import com.lee.demo.base.extension.IBatisWithExtension;
 
 import java.util.List;
 
-public class DefaultBaseDao extends IBatisWithExtension implements IBatisDaoWithSingleId {
+public abstract   class DefaultBaseDao<T,PK> extends IBatisWithExtension implements IBatisDaoWithSingleId<T,PK> {
+
     @Override
-    public Object getById(Object p) {
+    public T getById(PK p) {
+        return (T)getPoMapper(getClass()).selectByPrimaryKey(p);
+    }
+
+    @Override
+    public int deleteById(PK p) {
+        return getPoMapper(getClass()).deleteByPrimaryKey(p);
+    }
+
+    @Override
+    public int save(T t) {
+        return getPoMapper(getClass()).insert(t);
+    }
+
+    @Override
+    public int batchImport(List<T> list) {
+        return 0;
+    }
+
+    @Override
+    public int update(T t) {
+        return getPoMapper(getClass()).updateByPrimaryKey(t);
+    }
+
+    @Override
+    public List<T> findAll() {
+        return getPoMapper(getClass()).select(null);
+    }
+
+    @Override
+    public List<T> findBySearch(Object search) {
         return null;
     }
 
     @Override
-    public int deleteById(Object p) {
-        return 0;
-    }
-
-    @Override
-    public int save(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int batchImport(List list) {
-        return 0;
-    }
-
-    @Override
-    public int update(Object o) {
-        return 0;
-    }
-
-    @Override
-    public List findAll() {
-        return null;
-    }
-
-    @Override
-    public List findBySearch(Object search) {
-        return null;
-    }
-
-    @Override
-    public int delete(Object o) {
-        return 0;
+    public int delete(T t) {
+        return getPoMapper(getClass()).delete(t);
     }
 }
