@@ -5,10 +5,10 @@ package com.lee.demo.zk;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
-import com.wd.encrypt.AESUtil;
-import com.wd.encrypt.EncryptUtil;
-import com.wd.zk.util.ConfigLoader;
-import com.wd.zk.util.NetUtil;
+import com.lee.demo.encrypt.AESUtil;
+import com.lee.demo.encrypt.EncryptUtil;
+import com.lee.demo.zk.util.ConfigLoader;
+import com.lee.demo.zk.util.NetUtil;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,13 +27,21 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.io.AbstractResource;
 
 public class ZookeeperResource extends AbstractResource implements ApplicationContextAware, DisposableBean {
+
     private static Logger log = LoggerFactory.getLogger(ZookeeperResource.class);
+
     public static final String URL_HEADER = "zk://";
+
     public static String rootPath;
+
     public static String START_PATH = "/%s/start-configs";
+
     public static String DEVICE_PLATFORM_PATH = "/%s/deviceplatform";
+
     private static String path = "";
+
     ConcurrentMap<String, Object> recoverDataCache = Maps.newConcurrentMap();
+
     AbstractApplicationContext ctx;
 
     public ZookeeperResource() {
@@ -43,7 +51,7 @@ public class ZookeeperResource extends AbstractResource implements ApplicationCo
         try {
             return null != ZKClient.getClient().checkExists().forPath("");
         } catch (Exception var2) {
-            log.error("Falied to detect the config in zoo keeper.", var2);
+            log.error("Falied to detect the config in zookeeper", var2);
             return false;
         }
     }
@@ -53,7 +61,7 @@ public class ZookeeperResource extends AbstractResource implements ApplicationCo
     }
 
     public URL getURL() throws IOException {
-        return new URL("zk://" + path);
+        return new URL(URL_HEADER + path);
     }
 
     public String getFilename() throws IllegalStateException {

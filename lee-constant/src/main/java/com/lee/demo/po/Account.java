@@ -10,16 +10,22 @@ import javax.persistence.Table;
 public class Account extends BasePo {
     @Id
     private String id;
+
     @Column
     private String userId;
+
     @Column
     private String username;
+
     @Column
     private String password;
+
     @Column
     private String salt;
+
     @Column
     private Boolean locked = new Boolean(false);
+
     @Column
     private Boolean disabled = new Boolean(false);
 

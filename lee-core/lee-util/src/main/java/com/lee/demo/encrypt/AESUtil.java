@@ -69,4 +69,5 @@ public class AESUtil {
     public static String aesDecrypt(String encryptStr, String decryptKey) throws Exception {
         return aesDecryptByBytes(base64Decode(encryptStr), decryptKey);
     }
+
 }
