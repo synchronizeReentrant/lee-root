@@ -93,7 +93,6 @@ public class ZKClient extends AbstractLifecycle {
         if(zkClient != null) {
             zkClient.close();
         }
-        //throw new RuntimeException("un implemented");
     }
 
     private static class ZKClientHolder{
