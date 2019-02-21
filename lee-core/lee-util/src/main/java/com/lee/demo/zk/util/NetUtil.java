@@ -27,6 +27,7 @@ public class NetUtil {
         return InetAddress.getByName(domain).getHostAddress();
     }
 
+
     private static final Logger logger = LoggerFactory.getLogger(NetUtil.class);
 
     public static final String LOCALHOST = "127.0.0.1";
@@ -144,6 +145,11 @@ public class NetUtil {
         return address == null ? LOCALHOST : address.getHostAddress();
     }
 
+    public static void main(String[] args) throws SocketException {
+        for (String str : getLocalIps()){
+            System.out.println("_____"+str);
+        }
+    }
     public static List<String> getLocalIps() throws SocketException
     {
         List<String> ips = Lists.newArrayList();
@@ -154,8 +160,6 @@ public class NetUtil {
         while (nifs.hasMoreElements())
         {
             NetworkInterface nif = nifs.nextElement();
-            // We ignore subinterfaces - as not yet needed.
-
             Enumeration<InetAddress> adrs = nif.getInetAddresses();
             while ( adrs.hasMoreElements() )
             {
@@ -170,28 +174,6 @@ public class NetUtil {
         }
         return ips;
     }
-
-//    public static String filterLocalHost(String host) {
-//        if (host == null || host.length() == 0) {
-//            return host;
-//        }
-//        if (host.contains("://")) {
-//            URL u = URL.valueOf(host);
-//            if (NetUtil.isInvalidLocalHost(u.getHost())) {
-//                return u.setHost(NetUtil.getLocalHost()).toFullString();
-//            }
-//        } else if (host.contains(":")) {
-//            int i = host.lastIndexOf(':');
-//            if (NetUtil.isInvalidLocalHost(host.substring(0, i))) {
-//                return NetUtil.getLocalHost() + host.substring(i);
-//            }
-//        } else {
-//            if (NetUtil.isInvalidLocalHost(host)) {
-//                return NetUtil.getLocalHost();
-//            }
-//        }
-//        return host;
-//    }
 
     private static volatile InetAddress LOCAL_ADDRESS = null;
 
@@ -254,29 +236,6 @@ public class NetUtil {
         return localAddress;
     }
 
-//    private static final Map<String, String> hostNameCache = new LRUCache<String, String>(1000);
-
-//    public static String getHostName(String address) {
-//        try {
-//            int i = address.indexOf(':');
-//            if (i > -1) {
-//                address = address.substring(0, i);
-//            }
-//            String hostname = hostNameCache.get(address);
-//            if (hostname != null && hostname.length() > 0) {
-//                return hostname;
-//            }
-//            InetAddress inetAddress = InetAddress.getByName(address);
-//            if (inetAddress != null) {
-//                hostname = inetAddress.getHostName();
-//                hostNameCache.put(address, hostname);
-//                return hostname;
-//            }
-//        } catch (Throwable e) {
-//            // ignore
-//        }
-//        return address;
-//    }
 
     /**
      * @param hostName

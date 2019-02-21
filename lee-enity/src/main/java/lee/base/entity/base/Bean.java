@@ -1,4 +1,4 @@
-package com.lee.base.entity.base;
+package lee.base.entity.base;
 
 import java.io.Serializable;
 

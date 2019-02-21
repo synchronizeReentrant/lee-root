@@ -1,6 +1,7 @@
-package com.lee.demo.po;
+package lee.demo.po;
 
-import com.lee.demo.po.base.BasePo;
+
+import lee.demo.po.base.BasePo;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -89,7 +90,6 @@ public class Account extends BasePo {
         this.id = id;
     }
 
-    @Override
     public String toString() {
         return "Account{" +
                 "id='" + id+ '\'' +

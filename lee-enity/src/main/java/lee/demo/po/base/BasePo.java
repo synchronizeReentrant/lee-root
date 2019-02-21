@@ -1,7 +1,9 @@
-package com.lee.demo.po.base;
+package lee.demo.po.base;
 
-import com.lee.base.entity.base.BaseEntity;
-import com.lee.base.entity.base.Bean;
+
+
+import lee.base.entity.base.BaseEntity;
+import lee.base.entity.base.Bean;
 
 import javax.persistence.Column;
 import java.sql.Timestamp;
@@ -14,7 +16,6 @@ public abstract class BasePo extends BaseEntity implements Bean {
     private Date updateTime;
     @Column(name="create_time")
     private Timestamp creatTime;
-
 
     public Date getUpdateTime() {
         return updateTime;

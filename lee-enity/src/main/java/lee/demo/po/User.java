@@ -1,11 +1,12 @@
-package com.lee.demo.po;
+package lee.demo.po;
 
-import com.lee.demo.po.base.BasePo;
+import lee.demo.po.base.BasePo;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
+
 @Table(name="sys_user")
 public class User extends BasePo {
     @Id
@@ -89,7 +90,6 @@ public class User extends BasePo {
         this.id = id;
     }
 
-    @Override
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +

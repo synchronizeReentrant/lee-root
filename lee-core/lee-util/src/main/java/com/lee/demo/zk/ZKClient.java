@@ -18,10 +18,8 @@ import java.util.List;
  *
  */
 public class ZKClient extends AbstractLifecycle {
-    public static final Logger logger = LoggerFactory.getLogger(ZKClient.class);
 
-    /** 云管理中心域名 */
-//    public static final String DEFAULT_DOMAIN_NAME = "wxtest.usisz.com";
+    public static final Logger logger = LoggerFactory.getLogger(ZKClient.class);
 
     private volatile static CuratorFramework zkClient = null;
 
@@ -34,9 +32,9 @@ public class ZKClient extends AbstractLifecycle {
         String url="";
         String zkPort;
         try {
-//            ip = NetUtil.getIpByDomain(DEFAULT_DOMAIN_NAME);
             zkIp = ConfigLoader.getInstance().getProperty("localhost.zkip");
             zkPort = ConfigLoader.getInstance().getProperty("localhost.zkport");
+
             if (!Strings.isNullOrEmpty(zkIp) && !Strings.isNullOrEmpty(zkPort)){
                 url = zkIp + ":" + zkPort;
             }else {
