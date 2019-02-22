@@ -14,7 +14,7 @@ public class ConfigLoader {
 
     public static final Logger logger = LoggerFactory.getLogger(ConfigLoader.class);
 
-    public static final String APP_MAINCONF_FILE = "config/app_conf.properties";
+    public static final String APP_MAINCONF_FILE = "config/app_config.properties";
 
 
     private static Properties properties = null;

@@ -16,8 +16,17 @@
             <artifactId>druid</artifactId>
         </dependency>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>aopalliance</groupId>
+            <artifactId>aopalliance</artifactId>
+            <version>1.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
@@ -36,6 +45,11 @@
         <dependency>
             <groupId>com.lee.demo</groupId>
             <artifactId>lee-enity</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.lee.demo</groupId>
+            <artifactId>lee-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

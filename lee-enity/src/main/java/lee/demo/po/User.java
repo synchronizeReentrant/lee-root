@@ -16,11 +16,11 @@ public class User extends BasePo {
     @Column
     private String name;
     @Column
-    private Date birthDay;
+    private Date birthday;
     @Column
     private String address;
     @Column
-    private String educationBackgroud;
+    private String educationBackground;
     @Column
     private String idNumber;
     @Column
@@ -42,12 +42,12 @@ public class User extends BasePo {
         this.name = name;
     }
 
-    public Date getBirthDay() {
-        return birthDay;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBirthDay(Date birthDay) {
-        this.birthDay = birthDay;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getAddress() {
@@ -58,12 +58,12 @@ public class User extends BasePo {
         this.address = address;
     }
 
-    public String getEducationBackgroud() {
-        return educationBackgroud;
+    public String getEducationBackground() {
+        return educationBackground;
     }
 
-    public void setEducationBackgroud(String educationBackgroud) {
-        this.educationBackgroud = educationBackgroud;
+    public void setEducationBackground(String educationBackground) {
+        this.educationBackground = educationBackground;
     }
 
     public String getIdNumber() {
@@ -95,9 +95,9 @@ public class User extends BasePo {
                 "id='" + id + '\'' +
                 "organizationId='" + organizationId + '\'' +
                 ", name='" + name + '\'' +
-                ", birthDay=" + birthDay +
+                ", birthDay=" + birthday +
                 ", address='" + address + '\'' +
-                ", educationBackgroud='" + educationBackgroud + '\'' +
+                ", educationBackgroud='" + educationBackground + '\'' +
                 ", idNumber='" + idNumber + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", createTime='" + getCreatTime() + '\'' +
