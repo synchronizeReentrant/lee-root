@@ -16,14 +16,7 @@ public class MainTest {
     private UserDao userDao;
     @Test
     public void testJDBCConnection(){
-        User user = new User();
-        user.setId("1283498123481902348-1");
-        user.setIdNumber("4306829895624123644");
-        user.setAddress("湖南长沙");
-        user.setMobile("1111111111111111");
-        user.setName("张三");
-        userDao.save(user);
-
-
+        User user = userDao.getById("1283498123481902348-1");
+        System.out.println(user);
     }
 }

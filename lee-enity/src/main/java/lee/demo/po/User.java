@@ -26,6 +26,16 @@ public class User extends BasePo {
     @Column
     private String mobile;
 
+    public  static enum DP {
+        id("id"),organizationId("organizationId"),name("name"),birthday("birthday"),
+        address("address"),educationBackground("educationBackground"),idNumber("idNumber"),
+        mobile("mobile"),updateTime("updateTime"),createTime("createTime");
+        private String fieldname;
+        private DP(String fieldname) {
+            this.fieldname = fieldname;
+        }
+    }
+
     public String getOrganizationId() {
         return organizationId;
     }
@@ -100,7 +110,7 @@ public class User extends BasePo {
                 ", educationBackgroud='" + educationBackground + '\'' +
                 ", idNumber='" + idNumber + '\'' +
                 ", mobile='" + mobile + '\'' +
-                ", createTime='" + getCreatTime() + '\'' +
+                ", createTime='" + getCreateTime() + '\'' +
                 ", updateTime='" + getUpdateTime() + '\'' +
                 '}';
     }

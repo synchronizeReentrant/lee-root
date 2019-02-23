@@ -3,20 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>lee-root</artifactId>
+        <artifactId>lee-core</artifactId>
         <groupId>com.lee.demo</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>lee-core</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>lee-base-dao</module>
-        <module>lee-util</module>
-        <module>lee-log</module>
-        <module>lee-constant</module>
-    </modules>
+    <artifactId>lee-constant</artifactId>
 
 
 </project>

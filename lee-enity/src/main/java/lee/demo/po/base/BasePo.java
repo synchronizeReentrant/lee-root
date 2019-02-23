@@ -15,7 +15,8 @@ public abstract class BasePo extends BaseEntity implements Bean {
     @Column(name="update_time")
     private Date updateTime;
     @Column(name="create_time")
-    private Timestamp creatTime;
+    private Timestamp createTime;
+
 
     public Date getUpdateTime() {
         return updateTime;
@@ -25,11 +26,11 @@ public abstract class BasePo extends BaseEntity implements Bean {
         this.updateTime = updateTime;
     }
 
-    public Timestamp getCreatTime() {
-        return creatTime;
+    public Timestamp getCreateTime() {
+        return createTime;
     }
 
     public void setCreatTime(Timestamp creatTime) {
-        this.creatTime = creatTime;
+        this.createTime = creatTime;
     }
 }

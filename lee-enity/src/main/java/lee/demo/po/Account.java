@@ -30,6 +30,15 @@ public class Account extends BasePo {
     @Column
     private Boolean disabled = new Boolean(false);
 
+
+    public static enum DP{
+          id("id"),userId("userId"),username("username"),password("password"),salt("salt"),locked("locked"),disabled("disabled"),
+          updateTime("updateTime"),createTime("createTime");
+          private String name;
+          private DP(String name){
+              this.name = name;
+          }
+    }
     public String getUserId() {
         return userId;
     }
@@ -99,7 +108,7 @@ public class Account extends BasePo {
                 ", salt='" + salt + '\'' +
                 ", locked=" + locked +
                 ", disabled=" + disabled +
-                ", createTime=" + getCreatTime() +
+                ", createTime=" + getCreateTime() +
                 ", updateTime=" + getUpdateTime() +
                 '}';
     }
