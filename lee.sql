@@ -1,6 +1,3 @@
-
-
-
 create table sys_account (
   id varchar(32)  comment '账户ID',
   user_id bigint comment '账户关联的用户ID'

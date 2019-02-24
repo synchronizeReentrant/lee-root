@@ -13,4 +13,6 @@ public interface UserDao extends IBatisDaoWithSingleId<User,String>{
 
     Account getAccountByUserId(String userId);
 
+    
+
 }
