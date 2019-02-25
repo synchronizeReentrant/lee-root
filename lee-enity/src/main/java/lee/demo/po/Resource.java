@@ -1,10 +1,12 @@
 package lee.demo.po;
 
+import lee.demo.po.base.BasePo;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 
 @javax.annotation.Resource
-public class Resource {
+public class Resource extends BasePo {
      @Id
      private String id;
      @Column

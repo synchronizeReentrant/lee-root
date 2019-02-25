@@ -1,19 +1,24 @@
 package com.lee.demo.base.search;
 
+import com.lee.sys.constant.Constants;
+
 public class SearchFilter {
+
     private String fieldName;
 
     private Operator operator;
 
     private Object value;
 
-    private String filter;
+    private String filterStatement;
 
     public SearchFilter(String fieldName,Operator operator,String value){
         this.fieldName = fieldName;
         this.operator = operator;
         this.value = value;
+        this.filterStatement = this.fieldName+ Constants.WHITE_SPACE + operator.getName()+ Constants.WHITE_SPACE + this.value;
     }
+
     public SearchFilter(){
 
     }
@@ -46,8 +51,18 @@ public class SearchFilter {
         this.value = value;
     }
 
-    public String getFilter() {
-        return fieldName + operator + value;
+    private void setFilterStatement(){
+        this.filterStatement = this.fieldName + operator.getName() + this.value;
+    }
+
+    public String getFilterStatement() {
+        return filterStatement;
+    }
+
+    public static void main(String[] args) {
+
+        SearchFilter searchFilter = new SearchFilter("user",Operator.eq,"张三");
+        System.out.println(searchFilter.getFilterStatement());
     }
 
 

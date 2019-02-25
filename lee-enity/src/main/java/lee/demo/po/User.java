@@ -27,7 +27,7 @@ public class User extends BasePo {
     private String mobile;
 
     public  static enum DP {
-        id("id"),organizationId("organizationId"),name("name"),birthday("birthday"),
+        id("id="),organizationId("organizationId"),name("name"),birthday("birthday"),
         address("address"),educationBackground("educationBackground"),idNumber("idNumber"),
         mobile("mobile"),updateTime("updateTime"),createTime("createTime");
         private String fieldname;
@@ -35,6 +35,7 @@ public class User extends BasePo {
             this.fieldname = fieldname;
         }
     }
+
 
     public String getOrganizationId() {
         return organizationId;

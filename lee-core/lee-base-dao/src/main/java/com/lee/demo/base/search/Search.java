@@ -7,8 +7,10 @@ import java.util.Map;
 
 /**
  * 通用查询类
+ * 适应简单的查询
+ *
  */
-public class Search implements Searchable {
+public class Search<T> implements Searchable<T> {
 
      private Map<String,SearchFilter> searcherMap = Maps.newHashMap();
 

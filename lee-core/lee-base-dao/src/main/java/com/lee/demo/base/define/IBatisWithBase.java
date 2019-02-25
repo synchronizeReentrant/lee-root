@@ -16,6 +16,8 @@ public interface IBatisWithBase<T> {
 
      List<T> findAll();
 
+     List<T> findByExample(T t);
+
      int delete(T t);
 
 }

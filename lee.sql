@@ -75,4 +75,15 @@ create table sys_role_resource (
 ) charset=utf8 ENGINE=InnoDB;
 create index idx_sys_role_resource_id on sys_role_resource(role_id,resource_id);
 
+create table sys_role (
+  id  varchar(32),
+  role varchar(100),
+  description varchar(100),
+  available bool default false,
+  updateTime DATETIME comment'更新时间',
+  create_time TIMESTAMP default  CURRENT_TIMESTAMP comment '创建时间',
+  constraint pk_sys_role primary key(id)
+) charset=utf8 ENGINE=InnoDB;
+create index idx_sys_role_id on sys_role(id);
+
 

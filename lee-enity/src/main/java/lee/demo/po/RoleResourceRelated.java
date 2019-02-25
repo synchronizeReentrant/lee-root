@@ -1,11 +1,13 @@
 package lee.demo.po;
 
+import lee.demo.po.base.BasePo;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name="sys_role_resource")
-public class RoleResourceRelated {
+public class RoleResourceRelated extends BasePo {
     @Column
     private String id;
     @Id
