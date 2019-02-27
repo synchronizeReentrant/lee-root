@@ -138,7 +138,7 @@ public abstract class BaseDao<T> extends IBatisWithExtension implements IBatisWi
     public int  delete(T t) { return getPoMapper(getClass()).delete(t);}
 
     @Override
-    public List<T> findByExample(T t){return getPoMapper(getClass()).selectByExample(t);}
+    public List<T> findByExample(Object t){return getPoMapper(getClass()).selectByExample(t);}
 
 
     }

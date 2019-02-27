@@ -35,10 +35,7 @@
         <property name="dataSource" ref="mycatDataSource"/>
         <!--<property name="typeAliasesPackage"-->
                   <!--value="com.wd.question.server.domain.dto" />-->
-        <!--<property name="mapperLocations">-->
-            <!--<list>-->
-            <!--</list>-->
-        <!--</property>-->
+        <property name="mapperLocations" value="classpath*:mapper/*Mapper.xml"/>
         <property name="configLocation" value="classpath:/mybatis-conf/mybatis-config.xml"/>
     </bean>
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">

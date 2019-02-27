@@ -4,27 +4,71 @@ import com.lee.sys.constant.Constants;
 
 public class SearchFilter {
 
+
     private String fieldName;
 
     private Operator operator;
 
     private Object value;
 
-    private String filterStatement;
+    private StringBuilder filterStatement = new StringBuilder();
+
+
+
+    public SearchFilter(){}
 
     public SearchFilter(String fieldName,Operator operator,String value){
         this.fieldName = fieldName;
         this.operator = operator;
         this.value = value;
-        this.filterStatement = this.fieldName+ Constants.WHITE_SPACE + operator.getName()+ Constants.WHITE_SPACE + this.value;
     }
 
-    public SearchFilter(){
-
+    public static SearchFilter newSearchFilter(){
+        return new SearchFilter();
     }
 
-    public SearchFilter newSearchFilter(){
-      return new SearchFilter();
+    private StringBuilder concatFilterStatement(){
+
+        filterStatement.append(this.fieldName);
+        filterStatement.append(Constants.WHITE_SPACE);
+        filterStatement.append(operator.getName());
+        filterStatement.append(Constants.WHITE_SPACE);
+        filterStatement.append(this.value);
+      return filterStatement;
+    }
+
+    private StringBuilder concatAndFilterStatement(){
+        filterStatement.append(Constants.WHITE_SPACE+Join.AND.name()+Constants.WHITE_SPACE);
+        return concatFilterStatement();
+    }
+
+    private StringBuilder concatOrFilterStatement(){
+        filterStatement.append(Constants.WHITE_SPACE+Join.OR.name()+Constants.WHITE_SPACE);
+        return concatFilterStatement();
+    }
+
+    public SearchFilter AndSearchFilter(String name,Operator operator ,Object value){
+        this.fieldName = name;
+        this.operator = operator;
+        this.value = value;
+        concatAndFilterStatement();
+        return this;
+    }
+
+    public SearchFilter OrSearchFilter(String name,Operator operator ,Object value){
+        this.fieldName = name;
+        this.operator = operator;
+        this.value = value;
+        concatOrFilterStatement();
+        return this;
+    }
+
+    public StringBuilder getFilterStatement() {
+        return filterStatement;
+    }
+
+    public void setFilterStatement(StringBuilder filterStatement) {
+        this.filterStatement = filterStatement;
     }
 
     public String getFieldName() {
@@ -50,20 +94,5 @@ public class SearchFilter {
     public void setValue(Object value) {
         this.value = value;
     }
-
-    private void setFilterStatement(){
-        this.filterStatement = this.fieldName + operator.getName() + this.value;
-    }
-
-    public String getFilterStatement() {
-        return filterStatement;
-    }
-
-    public static void main(String[] args) {
-
-        SearchFilter searchFilter = new SearchFilter("user",Operator.eq,"张三");
-        System.out.println(searchFilter.getFilterStatement());
-    }
-
 
 }

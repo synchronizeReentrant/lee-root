@@ -38,14 +38,17 @@ public abstract class IBatisWithExtension<T,V extends Mapper> extends SqlSession
         classCollection =  registry.getMappers();
     }
 
-    protected  V  getPoMapper(Class<? extends IBatisWithBase> DaoClass){
+    protected  V  getPoMapper(Class<? extends IBatisWithBase> DaoClass){  //UserDaoImpl
         Class <T> entityClass = (Class <T>) ((ParameterizedType)DaoClass.getGenericSuperclass()).getActualTypeArguments()[0];
         for(Class clazz : classCollection){
+            String className = clazz.getSimpleName();
+            if(className.indexOf("Dao") > -1) continue;
             Type [] type = clazz.getGenericInterfaces();
             Type first = type[0];
             if (first instanceof  ParameterizedType) {
                 for (Type argType:((ParameterizedType)first).getActualTypeArguments()) {
                     if(argType.getTypeName().equals(entityClass.getName())){
+                        System.out.println("----"+clazz);
                         return (V)sqlSession.getMapper(clazz);
                     }
                 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lee.demo.dao.UserDao">
+
+    <sql id="USER_BASE_COLUMN">
+        ID,
+        ORGANIZATION_ID,
+        NAME,
+        JOB,
+        BIRTHDAY,
+        ADDRESS,
+        EDUCATION_BACKGROUND,
+        ID_NUMBER,
+        MOBILE,
+        UPDATE_TIME,
+        CREATE_TIME
+    </sql>
+
+    <select id="findBy" parameterType="com.lee.demo.base.search.Search" resultType="lee.demo.po.base.BasePo" statementType="STATEMENT">
+        select <include refid="USER_BASE_COLUMN"/> from sys_user
+        where
+             ${whereSqlCustom}
+    </select>
+</mapper>

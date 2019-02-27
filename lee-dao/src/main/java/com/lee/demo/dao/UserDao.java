@@ -6,12 +6,14 @@ import com.lee.demo.base.search.Searchable;
 import lee.demo.po.Account;
 import lee.demo.po.User;
 
+import java.util.List;
+
 
 public interface UserDao extends IBatisDaoWithSingleId<User,String>{
 
-    User findBy(Searchable searchable,boolean filter);
+    List<User> findBy(Search search);
 
-    Account getAccountByUserId(String userId);
+//    Account getAccountByUserId(String userId);
 
     
 
